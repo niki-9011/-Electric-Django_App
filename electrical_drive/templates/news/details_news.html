@@ -1,0 +1,40 @@
+{% extends "news/news.html" %}
+{% block news_content %}
+{% load static %}
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="{% static 'css/index.css' %}">
+<link rel="stylesheet" href="{% static 'JS/scripts.js' %}">
+<link rel="stylesheet" href="{% static 'css/slider.css' %}">
+<link rel="stylesheet" href="{% static 'css/forms.css' %}">
+
+<font color="black">
+
+<div class="container" style=" margin: 20%; margin-top: 1em; padding: 0% 0%">
+    <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content" data-aos="fade-right" data-aos-delay="100">
+        <div class="container" data-aos="fade-up">
+        <div class="row">
+            <div class="col-lg-6 order-1 order-lg-2" data-aos="fade-left" data-aos-delay="100">
+                <img src="{{ news.image.url }}" class="img-fluid" alt="" width="500" height="300">
+            </div>
+            <p class="fst-italic"></p>
+            <ul>
+                <li><i class="ri-check-double-line"></i>{{ news.description }}</li>
+            </ul>
+            <h6>Data of publication:{{ news.data }}</h6>
+        </div>
+
+            {% if request.user.is_staff %}
+                <div class="container" style=" margin: 20%; margin-top: 0em; padding: 0% 0%">
+                <p><a href="{% url "news update" news.id %}" class="w3-button w3-green w3-padding-large w3-large">UPDATE</a></p>
+                <p><a href="{% url "news delete" news.id %}" class="w3-button w3-red w3-padding-large w3-large">DELETE</a></p>
+            {% endif %}
+
+</div>
+
+{% endblock %}

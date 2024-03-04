@@ -1,0 +1,36 @@
+{% extends "news/news.html" %}
+{% block news_content %}
+{% load static %}
+
+<body>
+
+<div id="templatemo_container_wrapper">
+	<div class="templatemo_spacer"></div>
+  <div id="templatemo_header">
+      <div id="inner_header">
+
+      </div>
+  </div>
+
+{% if request.user.is_staff %}
+    <p><a href="{% url "news add" %}" class="btn btn-primary" style=" margin: 25%; margin-top: 1em; padding: 2% 2%;">ADD NEWS</a></p>
+{% endif %}
+
+        {% for news in allnews %}
+            <div class="section_box2" align="justify">
+            <div class="post_title"><h1>{{ news.subject }}</h1></div>
+            <div class="text_area">
+            <img src="{{ news.image.url }}" alt="Photo One" title="Photo One" width="180" height="120" class="templatemo_pic"/>
+   	        {{ news.description }} <br />
+   	        <br />
+
+            <div class="publish_date">{{ news.data }}<a href="{% url 'news details' news.id %}">DETAILS</a>
+            </div>
+
+      	    </div>
+        {% endfor %}
+
+        <div class="section_box2" align="justify">
+        <div class="text_area">
+
+{% endblock %}

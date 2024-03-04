@@ -1,0 +1,17 @@
+{% extends "news/news.html" %}
+{% load static %}
+{% block news_content %}
+
+<div class="w3-row-padding">
+   <div class="w3-col s12">
+    <img src="{% static 'images/news.jpeg' %}" width="500" >
+    <form class="w-50 m-auto" method="post" style=" margin: 25%; margin-top: 1em; padding: 00% 0%" method="post" action="{% url "news add" %}" enctype="multipart/form-data">
+
+        {{ form }}
+        {% csrf_token %}
+
+        <button class="btn btn-primary" style=" margin: 0%; margin-top: 1em; padding: 2% 2%;">ADD</button>
+    </form>
+</div>
+
+{% endblock %}

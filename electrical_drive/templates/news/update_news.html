@@ -1,0 +1,16 @@
+{% extends "news/news.html" %}
+{% block news_content %}
+{% load static %}
+
+<div class="w3-row-padding">
+   <div class="w3-col s12">
+    <form class="w-50 m-auto" method="post" style=" margin: 25%; margin-top: 1em; padding: 00% 0%" method="post" enctype="multipart/form-data">
+
+        {{ form }}
+        {% csrf_token %}
+
+        <button class="btn btn-primary" style=" margin: 0%; margin-top: 1em; padding: 2% 2%;">UPDATE</button>
+    </form>
+</div>
+
+{% endblock %}

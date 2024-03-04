@@ -1,0 +1,45 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="{% static 'css/index.css' %}">
+<link rel="stylesheet" href="{% static 'JS/scripts.js' %}">
+<link rel="stylesheet" href="{% static 'css/forms.css' %}">
+
+<font color="white">
+
+
+{% include "home/nav.html" %}
+
+<div class="w3-main w3-center"  style="margin-left:250px">
+
+{% if bike.category %}
+    <header class="w3-container w3-xlarge w3-blue w3-padding-32" >
+        <h1 class="w3-center" >{{ bike.category }}</h1>
+    </header>
+{% else %}
+    <header class="w3-container w3-xlarge w3-blue w3-padding-32" >
+        <h1 class="w3-center" >MOTORBIKES</h1>
+    </header>
+{% endif %}
+
+
+
+{% block motorbikes_content %}
+{% endblock %}
+
+</div>
+
+</body>
+
+{% include "home/footer.html" %}
+
+</html>
